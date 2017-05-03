@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+html {
+    height: 100%;
+}
+
+.page-flexbox-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.header {
+    height: 3px;
+    background-color: #039BE5;
+    width: 100%;
+}
+
+.main {
+    flex: 1 0 auto;
+}
+
+.purple {
+    background-color: #38003f;
+}
+
+.fa-sm {
+    font-size: 19px;
+}
+
+.input-field label.pickInfo {
+    top: 4.5em;
+    font-size: 10px;
+}
+
+.input-field i.removeInfo {
+    font-size: 14px;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+
+.blue.darken-4 {
+    background-color: #039BE5 !important;
+}
+
+table.sortable thead {
+    color: #666666;
+    font-weight: bold;
+    cursor: default;
+}

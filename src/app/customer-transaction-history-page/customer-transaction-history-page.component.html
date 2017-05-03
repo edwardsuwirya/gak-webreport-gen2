@@ -1,0 +1,183 @@
+<div class="row">
+  <div class="col s12 m6 offset-m3">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">Customer Transaction History</span>
+        <div class="row">
+          <div class="col s6 m6">
+            <a routerLink="/home"><i class="fa fa-chevron-left"
+                                     style="margin-right: 8px;"></i>Home</a>
+          </div>
+          <div class="col s6 m6 right-align">
+            <a (click)="logout()" href="#">Click Here to logout<i
+              class="fa fa-lock" style="margin-left: 8px;"></i></a>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 0px;">
+          <div class="input-field col s12 m12 l6">
+            <app-my-date-picker #date1 [dateElemId]="dateId1"
+                                [labelText]="labelDateText" [dateFormat]='ddformat'
+                                (dateVal)="dateValChange('1',$event)"></app-my-date-picker>
+          </div>
+          <div class="input-field col s12 m12 l6">
+            <app-my-date-picker #date2 [dateElemId]="dateId2"
+                                [labelText]="labelDateText" [dateFormat]='ddformat'
+                                (dateVal)="dateValChange('2',$event)"></app-my-date-picker>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 0px;">
+
+          <div class="input-field col s12 m12 l6">
+            <input id="resp1" readonly placeholder="" type="text" [(ngModel)]="sRC1" (click)="openPopUp('#sRC1')">
+            <div><label class="active">Responsibility</label></div>
+            <div>
+              <label class="pickInfo">{{rcName1}}</label>
+            </div>
+          </div>
+          <div class="input-field col s12 m12 l6">
+            <input id="resp2" readonly placeholder="" type="text" [(ngModel)]="sRC2" (click)="openPopUp('#sRC2')">
+            <div><label class="pickInfo">{{rcName2}}</label></div>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 0px;">
+          <div class="input-field col s12 m12 l6">
+            <input id="artc1" readonly type="text" [(ngModel)]="sArticle1"
+                   placeholder="" (click)="openPopUp('#sArticle1')">
+            <div><label class="active">Article</label></div>
+            <div><label class="pickInfo">{{articleName1}}</label></div>
+          </div>
+          <div class="input-field col s12 m12 l6">
+            <input id="artc2" readonly type="text" [(ngModel)]="sArticle2"
+                   placeholder="" (click)="openPopUp('#sArticle2')">
+            <div><label class="pickInfo">{{articleName2}}</label></div>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 0px;">
+          <div class="input-field col s12 m12 l6">
+            <input id="cust1" readonly type="text" [(ngModel)]="sCustomer1"
+                   placeholder="" (click)="openPopUp('#sCustomer1')">
+            <div><label class="active">Customer</label></div>
+            <div><label class="pickInfo">{{customerName1}}</label></div>
+          </div>
+          <div class="input-field col s12 m12 l6">
+            <input id="cust2" readonly type="text" [(ngModel)]="sCustomer2"
+                   placeholder="" (click)="openPopUp('#sCustomer2')">
+            <div><label class="pickInfo">{{customerName2}}</label></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-action">
+        <div class="row" style="margin-top: 20px">
+          <div class="col s12">
+            <div class="row">
+              <div class="col s7">
+
+                <div *ngIf="isDisabledForProcess">
+                  <div class="row">
+                    <div class="col s6">
+                      <span style="margin-top: 5px">Please wait...</span>
+                    </div>
+                    <div class="col s6">
+                      <a (click)="cancelReport()" class="right"
+                         href="javascript:void(0);">Cancel </a>
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <div class="indeterminate"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col s5 align-right">
+                <button [disabled]="isDisabledForProcess"
+                        (click)="createReport(0)" class="btn blue darken-4 right">
+                  <i class="fa fa-file-text-o" style="margin-right: 5px"></i>View
+                  Report
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Structure -->
+    <app-my-responsibility-center-picker [rcPickerId]="'sRC1'"
+                                         (rcSelection)="onRCSelection1($event)"></app-my-responsibility-center-picker>
+    <app-my-responsibility-center-picker [rcPickerId]="'sRC2'"
+                                         (rcSelection)="onRCSelection2($event)"></app-my-responsibility-center-picker>
+    <app-my-article-picker [articlePickerId]="'sArticle1'"
+                           (articleSelection)="onArticleSelection1($event)"></app-my-article-picker>
+    <app-my-article-picker [articlePickerId]="'sArticle2'"
+                           (articleSelection)="onArticleSelection2($event)"></app-my-article-picker>
+    <app-my-customer-picker [customerPickerId]="'sCustomer1'"
+                            (customerSelection)="onCustomerSelection1($event)"></app-my-customer-picker>
+    <app-my-customer-picker [customerPickerId]="'sCustomer2'"
+                            (customerSelection)="onCustomerSelection2($event)"></app-my-customer-picker>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12">
+
+    <div *ngIf="resp">
+      <table class="striped">
+        <thead>
+        <tr>
+          <th class="table-header-size">Company</th>
+          <th class="table-header-size">Resp. Code</th>
+          <th class="table-header-size">Resp. Name</th>
+          <th class="table-header-size">Cust. Code</th>
+          <th class="table-header-size">Cust. Name</th>
+          <th class="table-header-size">Cust. Phone</th>
+          <th class="table-header-size">Cust. Email</th>
+          <th class="table-header-size">Trans. Resp. Name</th>
+          <th class="table-header-size">Recv. No</th>
+          <th class="table-header-size">Recv. Date</th>
+          <th class="table-header-size">Qty</th>
+          <th class="table-header-size">Tot. Rcp</th>
+          <th class="table-header-size">Del. Date</th>
+          <th class="table-header-size">Del. Qty</th>
+          <th class="table-header-size">Pay. Date</th>
+          <th class="table-header-size">Payment</th>
+        </tr>
+        </thead>
+
+        <tr *ngFor="let dd of resp">
+          <td class="table-data-size">{{ dd.companyName }}</td>
+          <td class="table-data-size table-data-center">{{
+            dd.responsibilityCenterRealCode }}
+          </td>
+          <td class="table-data-size">{{ dd.responsibilityCenterRealName
+            }}
+          </td>
+          <td class="table-data-size">{{ dd.customerRealCode }}</td>
+          <td class="table-data-size">{{ dd.customerName }}</td>
+          <td class="table-data-size">{{ dd.customerPhone }}</td>
+          <td class="table-data-size">{{ dd.customerEmail1 }}</td>
+          <td class="table-data-size">{{
+            dd.transResponsibilityCenterName }}
+          </td>
+          <td class="table-data-size">{{ dd.receiveOrderRealNo }}</td>
+          <td class="table-data-size">{{ dd.receiveOrderDate |
+            myDateFormat:"DD MMM YYYY" }}
+          </td>
+          <td class="table-data-size table-data-right">{{ dd.dQty }}</td>
+          <td class="table-data-size table-data-right">{{
+            dd.dTotalReception }}
+          </td>
+          <td class="table-data-size">{{ dd.dDeliveryDate |
+            myDateFormat:"DD MMM YYYY" }}
+          </td>
+          <td class="table-data-size table-data-right">{{
+            dd.dQtyDelivery }}
+          </td>
+          <td class="table-data-size">{{ dd.dPaymentDate |
+            myDateFormat:"DD MMM YYYY" }}
+          </td>
+          <td class="table-data-size table-data-right">{{ dd.dPayment |
+            myNumberFormat }}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

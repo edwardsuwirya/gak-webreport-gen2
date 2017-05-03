@@ -1,0 +1,35 @@
+<div class="row" style="padding-top: 30px">
+    <div class="col s12 m6 offset-m3">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-title">
+                    <span>Login To Report Web App.</span> <img
+                        src="../../assets/img/5_a_sec_logo.jpg" alt="5aSec" width="170"
+                        height="48" class="right">
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input #userNameInput id="userId" type="text" [(ngModel)]="user.s_userName" placeholder="">
+                        <label class="active" for="userId">User ID</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate"
+                               [(ngModel)]="user.s_userPassword" placeholder="">
+                        <label class="active" for="password">Password</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-action">
+                <div class="row">
+                    <div class="col s12">
+                        <button (click)="login()"
+                           class="btn deep-orange darken-1" style="width: 100%" [disabled]="onLogin">Login</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div id="{{rcPickerId}}" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Responsibility Center</h4>
+    <div class="row">
+      <div class="input-field col s4">
+        <input id="rc_code" type="text" placeholder="" [(ngModel)]="rcRealCode">
+        <label class="active" for="rc_code">RC Code</label>
+      </div>
+      <div class="input-field col s4">
+        <input id="rc_name" type="text" placeholder="" [(ngModel)]="rcName">
+        <label class="active" for="rc_name">RC Name</label>
+      </div>
+      <div class="input-field col s4">
+        <button class="btn blue darken-4" (click)="onRefreshData()">Refresh</button>
+      </div>
+    </div>
+    <div class="row">
+      <table id="myTable" class="sortable">
+        <thead>
+        <tr>
+          <th>RC Name</th>
+          <th>Address</th>
+          <th>RC Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let rc of responsibilityCenters" (click)="onRCSelection(rc)">
+          <td>{{rc.s_responsibilityCenterName}}</td>
+          <td>{{rc.s_responsibilityCenterAddress}}</td>
+          <td>{{rc.s_responsibilityCenterRealCode}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div id="{{articlePickerId}}" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Article</h4>
+    <div class="row">
+      <div class="input-field col s3">
+        <input id="article_code" type="text" placeholder="" [(ngModel)]="articleCode">
+        <label class="active" for="article_code">Article Code</label>
+      </div>
+      <div class="input-field col s3">
+        <input id="article_name" type="text" placeholder="" [(ngModel)]="articleName">
+        <label class="active" for="article_name">Article Name</label>
+      </div>
+      <div class="input-field col s3">
+        <select id="articleGroupSelect">
+          <option value=""></option>
+          <option *ngFor="let g of articleGroups" value="{{g.s_articleGroupRealCode}}">{{g.s_articleGroupName}}</option>
+        </select>
+        <label class="active" for="articleGroupSelect">
+          Article Group
+        </label>
+      </div>
+      <div class="input-field col s3">
+        <button class="btn blue darken-4" (click)="onRefreshData()">Refresh</button>
+      </div>
+    </div>
+    <div class="row">
+      <table id="myTable" class="sortable">
+        <thead>
+        <tr>
+          <th>Article Code</th>
+          <th>Article Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ar of articles" (click)="onArticleSelection(ar)">
+          <td>{{ar.s_articleRealCode}}</td>
+          <td>{{ar.s_articleName}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

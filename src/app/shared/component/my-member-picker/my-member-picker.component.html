@@ -1,0 +1,60 @@
+<div id="{{memberPickerId}}" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Member</h4>
+    <div class="row">
+      <div class="input-field col s2">
+        <input id="member_code" type="text" placeholder="" [(ngModel)]="memberCode">
+        <label class="active" for="member_code">Member Code</label>
+      </div>
+      <div class="input-field col s3">
+        <input id="member_name" type="text" placeholder="" [(ngModel)]="memberName">
+        <label class="active" for="member_name">Member Name</label>
+      </div>
+      <div class="input-field col s2">
+        <select id="member_respcode" [(ngModel)]="memberResponsibilityCode">
+          <option value=""></option>
+          <option *ngFor="let rc of responsibilityCenters" value="{{rc.s_responsibilityCenterCode}}">
+            {{rc.s_responsibilityCenterName}}
+          </option>
+        </select>
+        <label class="active" for="member_respcode">Responsibility Code</label>
+      </div>
+      <div class="input-field col s2">
+        <input id="member_type_code" type="text" placeholder="" [(ngModel)]="memberTypeCode">
+        <label class="active" for="member_type_code">Member Type Code</label>
+      </div>
+      <div class="input-field col s3">
+        <button class="btn blue darken-4" (click)="onRefreshData()">Refresh</button>
+      </div>
+    </div>
+    <div class="row">
+      <table id="myTable" class="sortable">
+        <thead>
+        <tr>
+          <th>Member Code</th>
+          <th>member Name</th>
+          <th>RC Name</th>
+          <th>HP 1</th>
+          <th>HP 2</th>
+          <th>HP 3</th>
+          <th>Address</th>
+          <th>Member Type</th>
+          <th>Point</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let cust of members" (click)="onMemberSelection(cust)">
+          <td>{{cust.s_customerCode}}</td>
+          <td>{{cust.s_customerName}}</td>
+          <td>{{cust.s_responsibilityCenterName}}</td>
+          <td>{{cust.s_customerCellPhone1}}</td>
+          <td>{{cust.s_customerCellPhone2}}</td>
+          <td>{{cust.s_customerCellPhone3}}</td>
+          <td>{{cust.s_customerAddress}}</td>
+          <td>{{cust.s_memberTypeCode}}</td>
+          <td>{{cust.i_customerMemberPoint}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

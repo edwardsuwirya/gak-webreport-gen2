@@ -1,0 +1,51 @@
+<div id="{{customerPickerId}}" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Customer</h4>
+    <div class="row">
+      <div class="input-field col s3">
+        <input id="customer_code" type="text" placeholder="" [(ngModel)]="customerCode">
+        <label class="active" for="customer_code">Customer Code</label>
+      </div>
+      <div class="input-field col s3">
+        <input id="customer_name" type="text" placeholder="" [(ngModel)]="customerName">
+        <label class="active" for="customer_name">Customer Name</label>
+      </div>
+      <div class="input-field col s3">
+        <select id="customer_respcode" [(ngModel)]="customerResponsibilityCode">
+          <option *ngFor="let rc of responsibilityCenters" value="{{rc.s_responsibilityCenterCode}}">
+            {{rc.s_responsibilityCenterName}}
+          </option>
+        </select>
+        <label class="active" for="customer_respcode">Responsibility Code</label>
+      </div>
+      <div class="input-field col s3">
+        <button class="btn blue darken-4" (click)="onRefreshData()">Refresh</button>
+      </div>
+    </div>
+    <div class="row">
+      <table id="myTable" class="sortable">
+        <thead>
+        <tr>
+          <th>Customer Code</th>
+          <th>customer Name</th>
+          <th>RC Name</th>
+          <th>HP 1</th>
+          <th>HP 2</th>
+          <th>HP 3</th>
+          <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let cust of customers" (click)="onCustomerSelection(cust)">
+          <td>{{cust.s_customerCode}}</td>
+          <td>{{cust.s_customerName}}</td>
+          <td>{{cust.s_responsibilityCenterName}}</td>
+          <td>{{cust.s_customerCellPhone1}}</td>
+          <td>{{cust.s_customerCellPhone2}}</td>
+          <td>{{cust.s_customerCellPhone3}}</td>
+          <td>{{cust.s_customerAddress}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
