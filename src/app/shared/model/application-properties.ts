@@ -5,7 +5,7 @@ import {InjectionToken} from "@angular/core";
 
 export let APP_CONFIG = new InjectionToken("app.config");
 
-let SERVICE_BASE_URL:string = 'http://localhost:3000';
+let SERVICE_BASE_URL:string = process.env.API_URL;
 
 export const appConfig = {
     'tokenUser': '5asec',
