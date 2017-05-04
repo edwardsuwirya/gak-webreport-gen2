@@ -1,118 +1,121 @@
 <div class="row">
-  <div class="col s12 m8 offset-m2">
-    <div class="card">
-      <div class="card-content">
-        <span class="card-title">Stock Report</span>
-        <div class="row">
-          <div class="col s6 m6">
-            <a routerLink="/home"><i class="fa fa-chevron-left"
-                                     style="margin-right: 8px;"></i>Home</a>
-          </div>
-          <div class="col s6 m6 right-align">
-            <a (click)="logout()" href="#">Click Here to logout<i
-              class="fa fa-lock" style="margin-left: 8px;"></i></a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col s6 m6">
-            <div class="row" style="margin-bottom: 0px;">
-              <!--<div class="input-field col s12 m12 l6">
-                <app-my-date-picker #date1 [dateElemId]="dateId1"
-                                    [labelText]="labelDateText" [dateFormat]='ddformat'
-                                    (dateVal)="dateValChange('1',$event)"></app-my-date-picker>
-              </div>-->
-              <div class="input-field col s12 m12 l6">
-                <app-my-date-picker #dateEnd [dateElemId]="dateIdEnd"
-                                    [labelText]="labelDateText" [dateFormat]='ddformat'
-                                    (dateVal)="dateValChange('2',$event)"></app-my-date-picker>
-              </div>
-            </div>
-            <div class="row" style="margin-bottom: 0px;">
-              <div class="input-field col s12 m12 l6">
-                <input id="resp1" type="text" [(ngModel)]="sRC1" readonly placeholder="" (click)="openPopUp('#sRC1')">
-                <label class="active">Responsibility</label>
-                <div><label class="pickInfo">{{rcName1}}</label></div>
-              </div>
-              <div class="input-field col s12 m12 l6">
-                <input id="resp2" type="text" [(ngModel)]="sRC2" readonly placeholder="" (click)="openPopUp('#sRC2')">
-                <div><label class="pickInfo">{{rcName2}}</label></div>
-              </div>
-            </div>
-            <div class="row" style="margin-bottom: 0px;">
-              <div class="input-field col s12 m12 l6">
-                <input id="artc1" type="text" [(ngModel)]="sArticle1"
-                       readonly placeholder="" (click)="openPopUp('#sArticle1')">
-                <label class="active">Article</label>
-                <div><label class="pickInfo">{{articleName1}}</label></div>
-              </div>
-              <div class="input-field col s12 m12 l6">
-                <input id="artc2" type="text" [(ngModel)]="sArticle2"
-                       readonly placeholder="" (click)="openPopUp('#sArticle2')">
-                <div><label class="pickInfo">{{articleName2}}</label></div>
-              </div>
-            </div>
-          </div>
-          <div class="col s6 m6">
-            <div class="row" style="margin-bottom: 0px;">
-              <div class="input-field col s12 m12 l6">
-                <input id="cust1" type="text" [(ngModel)]="sCustomer1"
-                       readonly placeholder="" (click)="openPopUp('#sCustomer1')">
-                <label class="active">Customer</label>
-                <div><label class="pickInfo">{{customerName1}}</label></div>
-              </div>
-              <div class="input-field col s12 m12 l6">
-                <input id="cust2" type="text" [(ngModel)]="sCustomer2"
-                       readonly placeholder="" (click)="openPopUp('#sCustomer2')">
-                <div><label class="pickInfo">{{customerName2}}</label></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="card-action">
-        <div class="row" style="margin-top: 20px">
-          <div class="col s12">
-            <div class="row">
-              <div class="col s7">
-                <div *ngIf="isDisabledForProcess">
-                  <div class="row">
-                    <div class="col s6">
-                      <span style="margin-top: 5px">Please wait...</span>
+    <div class="col s12 m8 offset-m2">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title feature-title">Stock Report</span>
+                <div class="row">
+                    <div class="col s6 m6">
+                        <a routerLink="/home"><i class="fa fa-chevron-left"
+                                                 style="margin-right: 8px;"></i>Home</a>
                     </div>
-                    <div class="col s6">
-                      <a (click)="cancelReport()" class="right"
-                         href="javascript:void(0);">Cancel </a>
+                    <div class="col s6 m6 right-align">
+                        <a (click)="logout()" href="#">Click Here to logout<i
+                                class="fa fa-lock" style="margin-left: 8px;"></i></a>
                     </div>
-                  </div>
-                  <div class="progress">
-                    <div class="indeterminate"></div>
-                  </div>
                 </div>
-              </div>
-              <div class="col s5 align-right">
-                <button [disabled]="isDisabledForProcess"
-                        (click)="createReport()" class="btn blue darken-4 right">
-                  <i class="fa fa-file-text-o" style="margin-right: 5px"></i>
-                  View Report
-                </button>
-              </div>
+                <div class="row">
+                    <div class="col s6 m6">
+                        <div class="row" style="margin-bottom: 0px;">
+                            <!--<div class="input-field col s12 m12 l6">
+                              <app-my-date-picker #date1 [dateElemId]="dateId1"
+                                                  [labelText]="labelDateText" [dateFormat]='ddformat'
+                                                  (dateVal)="dateValChange('1',$event)"></app-my-date-picker>
+                            </div>-->
+                            <div class="input-field col s12 m12 l6">
+                                <app-my-date-picker #dateEnd [dateElemId]="dateIdEnd"
+                                                    [labelText]="labelDateText" [dateFormat]='ddformat'
+                                                    (dateVal)="dateValChange('2',$event)"></app-my-date-picker>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 0px;">
+                            <div class="input-field col s12 m12 l6">
+                                <input id="resp1" type="text" [(ngModel)]="sRC1" readonly placeholder=""
+                                       (click)="openPopUp('#sRC1')">
+                                <label class="active">Responsibility</label>
+                                <div><label class="pickInfo">{{rcName1}}</label></div>
+                            </div>
+                            <div class="input-field col s12 m12 l6">
+                                <input id="resp2" type="text" [(ngModel)]="sRC2" readonly placeholder=""
+                                       (click)="openPopUp('#sRC2')">
+                                <div><label class="pickInfo">{{rcName2}}</label></div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 0px;">
+                            <div class="input-field col s12 m12 l6">
+                                <input id="artc1" type="text" [(ngModel)]="sArticle1"
+                                       readonly placeholder="" (click)="openPopUp('#sArticle1')">
+                                <label class="active">Article</label>
+                                <div><label class="pickInfo">{{articleName1}}</label></div>
+                            </div>
+                            <div class="input-field col s12 m12 l6">
+                                <input id="artc2" type="text" [(ngModel)]="sArticle2"
+                                       readonly placeholder="" (click)="openPopUp('#sArticle2')">
+                                <div><label class="pickInfo">{{articleName2}}</label></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s6 m6">
+                        <div class="row" style="margin-bottom: 0px;">
+                            <div class="input-field col s12 m12 l6">
+                                <input id="cust1" type="text" [(ngModel)]="sCustomer1"
+                                       readonly placeholder="" (click)="openPopUp('#sCustomer1')">
+                                <label class="active">Customer</label>
+                                <div><label class="pickInfo">{{customerName1}}</label></div>
+                            </div>
+                            <div class="input-field col s12 m12 l6">
+                                <input id="cust2" type="text" [(ngModel)]="sCustomer2"
+                                       readonly placeholder="" (click)="openPopUp('#sCustomer2')">
+                                <div><label class="pickInfo">{{customerName2}}</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
+            <div class="card-action">
+                <div class="row" style="margin-top: 20px">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="col s7">
+                                &nbsp;
+                                <div *ngIf="isDisabledForProcess">
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <span style="margin-top: 5px">Please wait...</span>
+                                        </div>
+                                        <div class="col s6">
+                                            <a (click)="cancelReport()" class="right"
+                                               href="javascript:void(0);">Cancel </a>
+                                        </div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="indeterminate"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s5 align-right">
+                                <button [disabled]="isDisabledForProcess"
+                                        (click)="createReport()" class="btn blue darken-4 right">
+                                    <i class="fa fa-file-text-o" style="margin-right: 5px"></i>
+                                    View Report
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+        <app-my-responsibility-center-picker [rcPickerId]="'sRC1'"
+                                             (rcSelection)="onRCSelection1($event)"></app-my-responsibility-center-picker>
+        <app-my-responsibility-center-picker [rcPickerId]="'sRC2'"
+                                             (rcSelection)="onRCSelection2($event)"></app-my-responsibility-center-picker>
+        <app-my-article-picker [articlePickerId]="'sArticle1'"
+                               (articleSelection)="onArticleSelection1($event)"></app-my-article-picker>
+        <app-my-article-picker [articlePickerId]="'sArticle2'"
+                               (articleSelection)="onArticleSelection2($event)"></app-my-article-picker>
+        <app-my-customer-picker [customerPickerId]="'sCustomer1'"
+                                (customerSelection)="onCustomerSelection1($event)"></app-my-customer-picker>
+        <app-my-customer-picker [customerPickerId]="'sCustomer2'"
+                                (customerSelection)="onCustomerSelection2($event)"></app-my-customer-picker>
     </div>
-    <app-my-responsibility-center-picker [rcPickerId]="'sRC1'"
-                                         (rcSelection)="onRCSelection1($event)"></app-my-responsibility-center-picker>
-    <app-my-responsibility-center-picker [rcPickerId]="'sRC2'"
-                                         (rcSelection)="onRCSelection2($event)"></app-my-responsibility-center-picker>
-    <app-my-article-picker [articlePickerId]="'sArticle1'"
-                           (articleSelection)="onArticleSelection1($event)"></app-my-article-picker>
-    <app-my-article-picker [articlePickerId]="'sArticle2'"
-                           (articleSelection)="onArticleSelection2($event)"></app-my-article-picker>
-    <app-my-customer-picker [customerPickerId]="'sCustomer1'"
-                            (customerSelection)="onCustomerSelection1($event)"></app-my-customer-picker>
-    <app-my-customer-picker [customerPickerId]="'sCustomer2'"
-                            (customerSelection)="onCustomerSelection2($event)"></app-my-customer-picker>
-  </div>
 </div>
