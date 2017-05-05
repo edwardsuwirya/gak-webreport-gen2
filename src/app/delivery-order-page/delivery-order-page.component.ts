@@ -22,7 +22,7 @@ declare let alertify: any;
     templateUrl: './delivery-order-page.component.html',
     styleUrls: ['./delivery-order-page.component.css']
 })
-export class DeliveryOrderPageComponent implements OnInit, AfterViewInit {
+export class DeliveryOrderPageComponent implements OnInit {
     ddformat: string = 'DD MMM YYYY';
     labelDateText: string = 'Date';
     dateId1: string = 'date1';
@@ -116,10 +116,6 @@ export class DeliveryOrderPageComponent implements OnInit, AfterViewInit {
 
     logout() {
         this.authService.logout();
-    }
-
-    ngAfterViewInit() {
-        $('.modal').modal();
     }
 
     cancelReport() {

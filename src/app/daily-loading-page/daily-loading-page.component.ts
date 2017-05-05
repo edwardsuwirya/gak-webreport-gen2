@@ -19,7 +19,7 @@ declare let alertify: any;
     providers: [ReportingService],
     styleUrls: ['./daily-loading-page.component.css']
 })
-export class DailyLoadingPageComponent implements OnInit, AfterViewInit {
+export class DailyLoadingPageComponent implements OnInit {
     ddformat: string = 'DD MMM YYYY';
     labelDateText: string = 'Date';
     dateId1: string = 'date1';
@@ -99,10 +99,6 @@ export class DailyLoadingPageComponent implements OnInit, AfterViewInit {
 
     logout() {
         this.authService.logout();
-    }
-
-    ngAfterViewInit() {
-        $('.modal').leanModal();
     }
 
     cancelReport() {
