@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter} from "@angular/core";
+import {Component, OnInit, Input, Output, EventEmitter, AfterViewInit} from "@angular/core";
 import {CustomerService} from "../../service/customer.service";
 import {ResponsibilityCenter} from "../../model/responsibility-center";
 import {ResponsibilityCenterService} from "../../service/responsibility-center.service";
@@ -14,7 +14,7 @@ declare let alertify:any;
     templateUrl: './my-member-picker.component.html',
     styleUrls: ['./my-member-picker.component.css']
 })
-export class MyMemberPickerComponent implements OnInit {
+export class MyMemberPickerComponent implements OnInit,AfterViewInit {
     @Input()
     memberPickerId:string;
 
