@@ -1,7 +1,6 @@
 import {Component, OnInit, AfterViewInit, ViewChild, Inject} from "@angular/core";
 import {ReportingService} from "../shared/service/reporting.service";
 import {AuthenticationService} from "../shared/service/authentication.service";
-import {AppTokenService} from "../shared/service/app-token.service";
 import {Subscription} from "rxjs";
 import {ReportParam} from "../shared/model/report-param";
 import {MyDatePickerComponent} from "../shared/component/my-date-picker/my-date-picker.component";
@@ -19,7 +18,7 @@ declare let alertify: any;
 
 @Component({
     selector: 'app-delivery-order-page',
-    providers: [AuthenticationService, AppTokenService, ReportingService, CustomerService, ResponsibilityCenterService],
+    providers: [ReportingService, CustomerService, ResponsibilityCenterService],
     templateUrl: './delivery-order-page.component.html',
     styleUrls: ['./delivery-order-page.component.css']
 })

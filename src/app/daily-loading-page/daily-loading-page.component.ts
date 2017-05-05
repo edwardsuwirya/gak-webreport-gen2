@@ -1,6 +1,5 @@
 import {Component, OnInit, AfterViewInit, ViewChild, Inject} from "@angular/core";
 import {AuthenticationService} from "../shared/service/authentication.service";
-import {AppTokenService} from "../shared/service/app-token.service";
 import {ReportingService} from "../shared/service/reporting.service";
 import {Subscription} from "rxjs";
 import {ReportParam} from "../shared/model/report-param";
@@ -17,7 +16,7 @@ declare let alertify: any;
 @Component({
     selector: 'app-daily-loading-page',
     templateUrl: './daily-loading-page.component.html',
-    providers: [AuthenticationService, AppTokenService, ReportingService],
+    providers: [ReportingService],
     styleUrls: ['./daily-loading-page.component.css']
 })
 export class DailyLoadingPageComponent implements OnInit, AfterViewInit {

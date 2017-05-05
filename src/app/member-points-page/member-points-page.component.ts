@@ -1,6 +1,5 @@
 import {Component, OnInit, Inject} from "@angular/core";
 import {AuthenticationService} from "../shared/service/authentication.service";
-import {AppTokenService} from "../shared/service/app-token.service";
 import {ReportingService} from "../shared/service/reporting.service";
 import {Subscription} from "rxjs";
 import {ReportParam} from "../shared/model/report-param";
@@ -17,7 +16,7 @@ declare let alertify: any;
 @Component({
     selector: 'app-member-points-page',
     templateUrl: './member-points-page.component.html',
-    providers: [AuthenticationService, AppTokenService, ReportingService, CustomerService, ResponsibilityCenterService],
+    providers: [ReportingService, CustomerService, ResponsibilityCenterService],
     styleUrls: ['./member-points-page.component.css']
 })
 export class MemberPointsPageComponent implements OnInit {

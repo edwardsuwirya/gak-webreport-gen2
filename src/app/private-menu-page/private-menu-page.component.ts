@@ -1,23 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from '../shared/service/authentication.service';
-import {AppTokenService} from '../shared/service/app-token.service';
+import {Component, OnInit} from "@angular/core";
+import {AuthenticationService} from "../shared/service/authentication.service";
 
 @Component({
-  selector: 'app-private-menu-page',
-  providers: [AuthenticationService, AppTokenService],
-  templateUrl: './private-menu-page.component.html',
-  styleUrls: ['./private-menu-page.component.css']
+    selector: 'app-private-menu-page',
+    templateUrl: './private-menu-page.component.html',
+    styleUrls: ['./private-menu-page.component.css']
 })
 export class PrivateMenuPageComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) {
-  }
+    constructor(private authService: AuthenticationService) {
+    }
 
-  ngOnInit() {
-    this.authService.checkCredentials();
-  }
+    ngOnInit() {
+        this.authService.checkCredentials();
+    }
 
-  logout() {
-    this.authService.logout();
-  }
+    logout() {
+        this.authService.logout();
+    }
 }

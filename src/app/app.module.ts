@@ -24,6 +24,8 @@ import {MyMemberPickerComponent} from './shared/component/my-member-picker/my-me
 import {MyClearInputComponent} from './shared/component/my-clear-input/my-clear-input.component';
 import {appConfig, APP_CONFIG} from './shared/model/application-properties';
 import {AppRouteModule} from './app-route/app-route.module';
+import {AuthenticationService} from "./shared/service/authentication.service";
+import {AppTokenService} from "./shared/service/app-token.service";
 
 @NgModule({
     declarations: [
@@ -55,7 +57,9 @@ import {AppRouteModule} from './app-route/app-route.module';
         AppRouteModule
     ],
     providers: [
-        {provide: APP_CONFIG, useValue: appConfig}
+        {provide: APP_CONFIG, useValue: appConfig},
+        AuthenticationService,
+        AppTokenService
     ],
     bootstrap: [AppComponent]
 })

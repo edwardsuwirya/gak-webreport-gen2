@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild, Inject} from "@angular/core";
 import {AuthenticationService} from "../shared/service/authentication.service";
-import {AppTokenService} from "../shared/service/app-token.service";
 import {ReportingService} from "../shared/service/reporting.service";
 import {Subscription} from "rxjs";
 import {ReportParam} from "../shared/model/report-param";
@@ -19,7 +18,7 @@ declare let alertify: any;
 
 @Component({
     selector: 'app-top-customer-page',
-    providers: [AuthenticationService, AppTokenService, ReportingService, CustomerService, ResponsibilityCenterService],
+    providers: [ReportingService, CustomerService, ResponsibilityCenterService],
     templateUrl: './top-customer-page.component.html',
     styleUrls: ['./top-customer-page.component.css']
 })

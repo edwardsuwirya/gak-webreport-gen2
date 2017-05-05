@@ -8,7 +8,7 @@ import {User} from "../model/user";
 @Injectable()
 export class AuthenticationService {
     mytoken: MyToken;
-    activeUser: User;
+    public activeUser: User;
 
     constructor(private router: Router, private appToken: AppTokenService) {
     }
@@ -21,7 +21,6 @@ export class AuthenticationService {
                     this.mytoken = data;
                     if (this.mytoken.token) {
                         localStorage.setItem("usertoken", this.mytoken.token);
-                        this.activeUser = user;
                         obs.next(true);
                     } else {
                         obs.next(false);

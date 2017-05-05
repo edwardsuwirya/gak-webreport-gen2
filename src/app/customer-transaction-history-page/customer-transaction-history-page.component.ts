@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild, Inject} from "@angular/core";
 import {AuthenticationService} from "../shared/service/authentication.service";
-import {AppTokenService} from "../shared/service/app-token.service";
 import {ReportingService} from "../shared/service/reporting.service";
 import {Subscription} from "rxjs";
 import {CustomerTransactionHistory} from "../shared/model/customer-transaction-history";
@@ -20,7 +19,7 @@ declare let alertify: any;
 
 @Component({
     selector: 'app-customer-transaction-history-page',
-    providers: [AuthenticationService, AppTokenService, ReportingService, CustomerService, ResponsibilityCenterService],
+    providers: [ReportingService, CustomerService, ResponsibilityCenterService],
     templateUrl: './customer-transaction-history-page.component.html',
     styleUrls: ['./customer-transaction-history-page.component.css']
 })
