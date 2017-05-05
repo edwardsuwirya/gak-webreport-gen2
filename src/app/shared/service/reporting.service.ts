@@ -8,10 +8,10 @@ import {APP_CONFIG} from "../model/application-properties";
 @Injectable()
 export class ReportingService {
 
-    constructor(private http:Http, private httpUtilService:HttpUtilService, @Inject(APP_CONFIG) private config) {
+    constructor(private http: Http, private httpUtilService: HttpUtilService, @Inject(APP_CONFIG) private config) {
     }
 
-    getReport(reportParam:ReportParam, reportName:string):Observable<void> {
+    getReport(reportParam: ReportParam, reportName: string): Observable<void> {
         let validToken = localStorage.getItem('usertoken');
 
         let headers = new Headers({
@@ -24,10 +24,10 @@ export class ReportingService {
 
         return this.http.post(this.config.apiReportUrl + '/' + reportName, reportParam, options)
             .map(res => this.extractContent(res, reportName))
-            .catch((error:any) => this.httpUtilService.handleHttpError(error, true));
+            .catch((error: any) => this.httpUtilService.handleHttpError(error, true));
     }
 
-    getTableReport(reportParam:ReportParam, reportName:string):Observable<any> {
+    getTableReport(reportParam: ReportParam, reportName: string): Observable<any> {
         let validToken = localStorage.getItem('usertoken');
         let headers = new Headers({
             'Accept': 'application/json',
@@ -39,21 +39,21 @@ export class ReportingService {
 
         return this.http.post(this.config.apiReportUrl + '/' + reportName, reportParam, options)
             .map(this.extractData)
-            .catch((error:any) => this.httpUtilService.handleHttpError(error, true));
+            .catch((error: any) => this.httpUtilService.handleHttpError(error, true));
 
     }
 
-    private extractData(res:Response) {
+    private extractData(res: Response) {
         let body = res.json();
         return JSON.parse(body.responseDescription) || {};
     }
 
-    private extractContent(res:Response, reportName:string) {
-        let blob:Blob = res.blob();
-        window['saveAs'](blob, reportName + '.pdf');
+    private extractContent(res: Response, reportName: string) {
+        let blob: Blob = res.blob();
+        return blob;
     }
 
-    private handleError(error:Response) {
+    private handleError(error: Response) {
         return Observable.throw(error.json().error || 'Server error');
     }
 

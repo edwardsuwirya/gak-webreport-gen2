@@ -27,7 +27,6 @@ import 'accounting/accounting.js';
 import 'select2/dist/js/select2.full.js';
 import 'moment/moment.js';
 import 'alertify.js/dist/js/alertify.js';
-import './assets/js/FileSaver.min.js';
 import 'pikaday/pikaday.js';
 import 'pikaday-jquery';
 import './assets/js/sorttable.js';

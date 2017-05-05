@@ -3,15 +3,17 @@ import {MyToken} from "../model/my-token";
 import {Router} from "@angular/router";
 import {AppTokenService} from "./app-token.service";
 import {Observable} from "rxjs/Observable";
+import {User} from "../model/user";
 
 @Injectable()
 export class AuthenticationService {
-    mytoken:MyToken;
+    mytoken: MyToken;
+    activeUser: User;
 
-    constructor(private router:Router, private appToken:AppTokenService) {
+    constructor(private router: Router, private appToken: AppTokenService) {
     }
 
-    login(user):Observable<boolean> {
+    login(user): Observable<boolean> {
 
         return Observable.create((obs) => {
             this.appToken.getToken(user).subscribe(
@@ -19,6 +21,7 @@ export class AuthenticationService {
                     this.mytoken = data;
                     if (this.mytoken.token) {
                         localStorage.setItem("usertoken", this.mytoken.token);
+                        this.activeUser = user;
                         obs.next(true);
                     } else {
                         obs.next(false);
