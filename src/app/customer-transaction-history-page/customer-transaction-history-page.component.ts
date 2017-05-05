@@ -154,7 +154,12 @@ export class CustomerTransactionHistoryPageComponent implements OnInit {
             if (reportType === 0) {
                 this.mySub = this.reportingService.getReport(reportParam, 'customerTransactionHistory').subscribe((res) => {
                         let fileUrl = URL.createObjectURL(res);
-                        window.open(fileUrl, '_blank');
+                        let a = document.createElement("a");
+                        document.body.appendChild(a);
+                        a.href = fileUrl;
+                        a.download = 'Customer Transaction History Report';
+                        a.click();
+                        URL.revokeObjectURL(fileUrl);
                     },
                     (err) => {
                         this.httpUtilService.handleError(err);

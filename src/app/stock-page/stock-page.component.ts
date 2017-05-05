@@ -152,7 +152,12 @@ export class StockPageComponent implements OnInit {
 
             this.mySub = this.reportingService.getReport(reportParam, 'stockByRO').subscribe((res) => {
                     let fileUrl = URL.createObjectURL(res);
-                    window.open(fileUrl, '_blank');
+                    let a = document.createElement("a");
+                    document.body.appendChild(a);
+                    a.href = fileUrl;
+                    a.download = 'Stock By RO Report';
+                    a.click();
+                    URL.revokeObjectURL(fileUrl);
                 },
                 (err) => {
                     this.httpUtilService.handleError(err);

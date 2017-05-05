@@ -148,7 +148,12 @@ export class ReceiveOrderPageComponent implements OnInit {
 
             this.mySub = this.reportingService.getReport(reportParam, 'listROActivity').subscribe((res) => {
                     let fileUrl = URL.createObjectURL(res);
-                    window.open(fileUrl, '_blank');
+                    let a = document.createElement("a");
+                    document.body.appendChild(a);
+                    a.href = fileUrl;
+                    a.download = 'RO Activity Report';
+                    a.click();
+                    URL.revokeObjectURL(fileUrl);
                 },
                 (err) => {
                     this.httpUtilService.handleError(err);
