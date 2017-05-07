@@ -51,3 +51,10 @@ table.sortable thead {
     font-weight: bold;
     cursor: default;
 }
+.erase-field{
+    position: absolute;
+    top: -0.7rem;
+    right: 0.7rem;
+    cursor: pointer;
+    font-size: 10px;
+}
