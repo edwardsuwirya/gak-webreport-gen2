@@ -44,6 +44,18 @@ export class MemberPointsPageComponent implements OnInit {
         this.activeUser = this.authService.activeUser;
     }
 
+    doClearForm() {
+        this.doClearCustomer();
+        return false;
+    }
+
+    doClearCustomer() {
+        this.sCustomer1 = '';
+        this.sCustomer2 = '';
+        this.customerName1 = '';
+        this.customerName2 = '';
+    }
+
     openPopUp(id) {
         $(id).openModal();
     }

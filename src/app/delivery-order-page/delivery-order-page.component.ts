@@ -66,6 +66,34 @@ export class DeliveryOrderPageComponent implements OnInit {
         $(id).openModal();
     }
 
+    doClearForm() {
+        this.doClearResponsibility();
+        this.doClearArticle();
+        this.doClearCustomer();
+        return false;
+    }
+
+    doClearCustomer() {
+        this.sCustomer1 = '';
+        this.sCustomer2 = '';
+        this.customerName1 = '';
+        this.customerName2 = '';
+    }
+
+    doClearArticle() {
+        this.sArticle1 = '';
+        this.sArticle2 = '';
+        this.articleName1 = '';
+        this.articleName2 = '';
+    }
+
+    doClearResponsibility() {
+        this.sRC1 = '';
+        this.sRC2 = '';
+        this.rcName1 = '';
+        this.rcName2 = '';
+    }
+
     dateValChange(id: string, val) {
         if (id === '1') {
             this.sDate1 = val;

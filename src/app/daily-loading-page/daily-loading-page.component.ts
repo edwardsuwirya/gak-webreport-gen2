@@ -58,6 +58,25 @@ export class DailyLoadingPageComponent implements OnInit {
         this.activeUser = this.authService.activeUser;
     }
 
+    doClearForm() {
+        this.doClearResponsibility();
+        this.doClearArticle();
+        return false;
+    }
+
+    doClearArticle() {
+        this.sArticle1 = '';
+        this.sArticle2 = '';
+        this.articleName1 = '';
+        this.articleName2 = '';
+    }
+
+    doClearResponsibility() {
+        this.sRC1 = '';
+        this.sRC2 = '';
+        this.rcName1 = '';
+        this.rcName2 = '';
+    }
     openPopUp(id) {
         $(id).openModal();
     }
