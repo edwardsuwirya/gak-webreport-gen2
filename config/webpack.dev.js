@@ -27,6 +27,8 @@ module.exports = webpackMerge(commonConfig, {
     ],
 
     devServer: {
+        compress: true,
+        clientLogLevel: 'info',
         proxy: {
             '/ajax': {
                 target: 'http://192.168.5.20:8080/',
@@ -35,6 +37,6 @@ module.exports = webpackMerge(commonConfig, {
             }
         },
         historyApiFallback: true,
-        stats: 'minimal'
+        stats: 'verbose'
     }
 });
